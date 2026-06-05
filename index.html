@@ -4,31 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nunya Academy — Le savoir, pour tous</title>
-<meta name="description" content="La plateforme académique numérique qui accompagne les élèves francophones du monde, de la 6ème à la Terminale.">
+<meta name="description" content="La plateforme académique numérique de référence pour les élèves francophones du monde entier. Du collège à la prépa, dans toutes les matières.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --navy:#0A1F44;
-  --blue:#1A56DB;
-  --blue-light:#EBF2FF;
-  --gold:#C9972C;
-  --gold-light:#FDF3DC;
-  --white:#FFFFFF;
-  --gray-50:#F7F8FA;
-  --gray-100:#EFF1F5;
-  --gray-200:#DDE1EA;
-  --gray-400:#8B93A5;
-  --gray-600:#4B5468;
-  --gray-900:#111827;
+  --navy:#0A1F44;--blue:#1A56DB;--blue-light:#EBF2FF;
+  --gold:#C9972C;--gold-light:#FDF3DC;
+  --white:#FFFFFF;--gray-50:#F7F8FA;--gray-100:#EFF1F5;
+  --gray-200:#DDE1EA;--gray-400:#8B93A5;--gray-600:#4B5468;--gray-900:#111827;
   --font-display:'Cormorant Garamond',Georgia,serif;
   --font-body:'DM Sans',system-ui,sans-serif;
-  --radius:8px;
-  --radius-lg:16px;
-  --shadow:0 2px 12px rgba(10,31,68,0.08);
-  --shadow-md:0 8px 32px rgba(10,31,68,0.12);
+  --radius:8px;--radius-lg:16px;
+  --shadow:0 2px 12px rgba(10,31,68,0.08);--shadow-md:0 8px 32px rgba(10,31,68,0.12);
 }
 html{scroll-behavior:smooth}
 body{font-family:var(--font-body);color:var(--gray-900);background:var(--white);line-height:1.6;font-size:16px}
@@ -66,8 +56,17 @@ nav ul li a:hover{color:var(--navy);background:var(--gray-50)}
 .btn-secondary{background:var(--white);color:var(--navy);border:1.5px solid var(--gray-200);padding:14px 32px;border-radius:8px;font-size:16px;font-weight:500;cursor:pointer;font-family:var(--font-body);text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
 .btn-secondary:hover{border-color:var(--navy);background:var(--gray-50)}
 .hero-note{margin-top:20px;font-size:13px;color:var(--gray-400)}
-.hero-flags{display:flex;justify-content:center;gap:8px;margin-top:48px;flex-wrap:wrap}
-.flag-pill{background:var(--white);border:1px solid var(--gray-200);border-radius:100px;padding:6px 14px;font-size:12px;color:var(--gray-600);font-weight:500;box-shadow:var(--shadow)}
+
+/* ── FLAGS TICKER ── */
+.flags-ticker{margin-top:48px;overflow:hidden;position:relative}
+.flags-ticker::before,.flags-ticker::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+.flags-ticker::before{left:0;background:linear-gradient(to right,white,transparent)}
+.flags-ticker::after{right:0;background:linear-gradient(to left,white,transparent)}
+.flags-track{display:flex;gap:12px;animation:ticker 30s linear infinite;width:max-content}
+.flags-track:hover{animation-play-state:paused}
+.flag-pill{background:transparent;border:none;padding:4px 10px;white-space:nowrap;display:flex;align-items:center;transition:transform .25s;cursor:default}
+.flag-pill:hover{transform:scale(1.25)}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ── STATS ── */
 .stats{background:var(--navy);padding:56px 24px}
@@ -77,31 +76,45 @@ nav ul li a:hover{color:var(--navy);background:var(--gray-50)}
 .stat-num span{color:var(--gold)}
 .stat-label{font-size:14px;color:rgba(255,255,255,0.6);margin-top:6px;font-weight:400}
 
-/* ── SECTION GENERIC ── */
+/* ── SECTIONS ── */
 section{padding:88px 24px}
 .section-inner{max-width:1200px;margin:0 auto}
 .section-tag{font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
 .section-title{font-family:var(--font-display);font-size:clamp(32px,4vw,48px);font-weight:700;color:var(--navy);line-height:1.15;letter-spacing:-0.5px;margin-bottom:16px}
-.section-sub{font-size:17px;color:var(--gray-600);max-width:540px;line-height:1.7}
-
-/* ── LEVELS ── */
-.levels{background:var(--gray-50)}
-.levels-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:48px}
-.level-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:24px 16px;text-align:center;transition:all .25s;cursor:default}
-.level-card:hover{border-color:var(--blue);box-shadow:0 4px 20px rgba(26,86,219,0.1);transform:translateY(-2px)}
-.level-card.highlight{border-color:var(--gold);background:var(--gold-light)}
-.level-icon{width:48px;height:48px;border-radius:12px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:22px}
-.level-card.highlight .level-icon{background:rgba(201,151,44,0.15)}
-.level-name{font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--navy);margin-bottom:4px}
-.level-subjects{font-size:12px;color:var(--gray-400);line-height:1.5}
-.level-badge{display:inline-block;background:var(--navy);color:var(--white);font-size:10px;font-weight:600;padding:2px 8px;border-radius:100px;margin-top:8px;letter-spacing:0.5px}
-.level-card.highlight .level-badge{background:var(--gold)}
+.section-sub{font-size:17px;color:var(--gray-600);max-width:600px;line-height:1.7}
 
 /* ── SUBJECTS STRIP ── */
 .subjects{padding:48px 24px;border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100)}
 .subjects-inner{max-width:1200px;margin:0 auto;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 .subject-pill{display:flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--gray-200);padding:10px 20px;border-radius:100px;font-size:14px;font-weight:500;color:var(--navy);box-shadow:var(--shadow)}
 .subject-pill span{font-size:18px}
+
+/* ── LEVELS ── */
+.levels{background:var(--gray-50)}
+.levels-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:48px}
+.level-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:24px 16px;text-align:center;transition:all .25s}
+.level-card:hover{border-color:var(--blue);box-shadow:0 4px 20px rgba(26,86,219,0.1);transform:translateY(-2px)}
+.level-card.highlight{border-color:var(--gold);background:var(--gold-light)}
+.level-icon{width:48px;height:48px;border-radius:12px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:22px}
+.level-card.highlight .level-icon{background:rgba(201,151,44,0.15)}
+.level-name{font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.level-subjects{font-size:12px;color:var(--gray-400);line-height:1.5}
+.level-badge{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:100px;margin-top:8px;letter-spacing:0.5px}
+.badge-available{background:var(--navy);color:var(--white)}
+.badge-new{background:var(--gold);color:var(--white)}
+.badge-soon{background:var(--gray-100);color:var(--gray-400)}
+
+/* ── COMING SOON TRACKS ── */
+.tracks-section{padding:72px 24px;background:var(--white)}
+.tracks-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:48px}
+.track-card{border:1.5px dashed var(--gray-200);border-radius:var(--radius-lg);padding:28px 24px;position:relative;transition:all .25s;background:var(--white)}
+.track-card:hover{border-color:var(--blue);background:var(--blue-light)}
+.track-soon{position:absolute;top:16px;right:16px;background:var(--gold-light);color:var(--gold);font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;letter-spacing:0.5px}
+.track-icon{font-size:32px;margin-bottom:12px}
+.track-name{font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.track-desc{font-size:13px;color:var(--gray-400);line-height:1.6}
+.track-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.track-tag{background:var(--gray-100);color:var(--gray-600);font-size:11px;font-weight:500;padding:3px 10px;border-radius:100px}
 
 /* ── PRICING ── */
 .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:48px;max-width:960px}
@@ -122,7 +135,7 @@ section{padding:88px 24px}
 .price-features li.dimmed{color:var(--gray-200)}
 .btn-plan{width:100%;padding:13px;border-radius:8px;font-size:15px;font-weight:500;cursor:pointer;font-family:var(--font-body);text-align:center;text-decoration:none;display:block;transition:all .2s}
 .btn-plan-outline{background:var(--white);color:var(--navy);border:1.5px solid var(--gray-200)}
-.btn-plan-outline:hover{border-color:var(--navy);background:var(--gray-50)}
+.btn-plan-outline:hover{border-color:var(--navy)}
 .btn-plan-fill{background:var(--navy);color:var(--white);border:none}
 .btn-plan-fill:hover{background:#0d2a5c}
 .btn-plan-blue{background:var(--blue);color:var(--white);border:none}
@@ -150,7 +163,7 @@ section{padding:88px 24px}
 .faq-q .arrow{font-size:18px;color:var(--gray-400);transition:transform .3s;flex-shrink:0}
 .faq-q.open .arrow{transform:rotate(180deg);color:var(--blue)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;font-size:14px;color:var(--gray-600);line-height:1.7;padding:0 20px;background:var(--gray-50)}
-.faq-a.open{max-height:200px;padding:16px 20px}
+.faq-a.open{max-height:300px;padding:16px 20px}
 
 /* ── CTA BANNER ── */
 .cta-banner{background:linear-gradient(135deg,var(--navy) 0%,#1a3a6e 100%);padding:80px 24px;text-align:center}
@@ -175,7 +188,6 @@ footer ul li a:hover{color:var(--white)}
 .footer-bottom a{color:rgba(255,255,255,0.4);text-decoration:none}
 .footer-bottom a:hover{color:rgba(255,255,255,0.7)}
 
-/* ── RESPONSIVE ── */
 @media(max-width:768px){
   nav ul{display:none}
   .footer-top{grid-template-columns:1fr 1fr}
@@ -192,10 +204,11 @@ footer ul li a:hover{color:var(--white)}
   <div class="nav-inner">
     <a href="#" class="logo">
       <div class="logo-mark"><span>N</span></div>
-      <span class="logo-text">Nunya<em>.</em>academy</span>
+      <span class="logo-text">Nunya<em>.</em></span>
     </a>
     <ul>
       <li><a href="#niveaux" data-fr="Niveaux" data-en="Levels">Niveaux</a></li>
+      <li><a href="#filieres" data-fr="Filières" data-en="Tracks">Filières</a></li>
       <li><a href="#tarifs" data-fr="Tarifs" data-en="Pricing">Tarifs</a></li>
       <li><a href="#temoignages" data-fr="Témoignages" data-en="Testimonials">Témoignages</a></li>
       <li><a href="#faq" data-fr="FAQ" data-en="FAQ">FAQ</a></li>
@@ -212,22 +225,18 @@ footer ul li a:hover{color:var(--white)}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-badge" data-fr="✦ Nunya — « Le savoir » en Ewe" data-en="✦ Nunya — 'Knowledge' in Ewe">✦ Nunya — « Le savoir » en Ewe</div>
+  <div class="hero-badge" data-fr="✦ Nunya — Le savoir" data-en="✦ Nunya — Knowledge">✦ Nunya — Le savoir</div>
   <h1 data-fr="Le savoir,<br>pour <em>tous</em>." data-en="Knowledge,<br>for <em>everyone</em>.">Le savoir,<br>pour <em>tous</em>.</h1>
-  <p class="hero-sub" data-fr="La plateforme académique numérique qui accompagne les élèves francophones du monde, de la 6ème à la Terminale." data-en="The digital academic platform supporting French-speaking students worldwide, from middle school to graduation.">La plateforme académique numérique qui accompagne les élèves francophones du monde, de la 6ème à la Terminale.</p>
+  <p class="hero-sub" data-fr="La plateforme académique numérique de référence pour les élèves francophones du monde entier. Du collège à la prépa, dans toutes les matières." data-en="The world's reference digital academic platform for French-speaking students. From middle school to prep school, in every subject.">La plateforme académique numérique de référence pour les élèves francophones du monde entier. Du collège à la prépa, dans toutes les matières.</p>
   <div class="hero-ctas">
     <a href="https://app.nunya.academy" class="btn-primary" data-fr="Commencer gratuitement →" data-en="Get started for free →">Commencer gratuitement →</a>
     <a href="#niveaux" class="btn-secondary" data-fr="Découvrir la plateforme" data-en="Explore the platform">Découvrir la plateforme</a>
   </div>
   <p class="hero-note" data-fr="Gratuit pour 3 chapitres par matière. Aucune carte requise." data-en="Free for 3 chapters per subject. No credit card required.">Gratuit pour 3 chapitres par matière. Aucune carte requise.</p>
-  <div class="hero-flags">
-    <div class="flag-pill">🇬🇦 Gabon</div>
-    <div class="flag-pill">🇨🇮 Côte d'Ivoire</div>
-    <div class="flag-pill">🇨🇲 Cameroun</div>
-    <div class="flag-pill">🇸🇳 Sénégal</div>
-    <div class="flag-pill">🇫🇷 France</div>
-    <div class="flag-pill">🇧🇯 Bénin</div>
-    <div class="flag-pill">🌍 <span data-fr="& bien d'autres" data-en="& many more">& bien d'autres</span></div>
+
+  <!-- FLAGS TICKER -->
+  <div class="flags-ticker">
+    <div class="flags-track" id="flagsTrack"></div>
   </div>
 </section>
 
@@ -235,16 +244,16 @@ footer ul li a:hover{color:var(--white)}
 <div class="stats">
   <div class="stats-inner">
     <div class="stat-item">
-      <div class="stat-num">8<span>+</span></div>
-      <div class="stat-label" data-fr="Pays actifs" data-en="Active countries">Pays actifs</div>
+      <div class="stat-num">120<span>+</span></div>
+      <div class="stat-label" data-fr="Pays dans le monde" data-en="Countries worldwide">Pays dans le monde</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">3<span>,</span>400<span>+</span></div>
-      <div class="stat-label" data-fr="Exercices corrigés" data-en="Corrected exercises">Exercices corrigés</div>
+      <div class="stat-num">16 000<span>+</span></div>
+      <div class="stat-label" data-fr="Exercices + Corrigés" data-en="Exercises + Solutions">Exercices + Corrigés</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">500<span>+</span></div>
-      <div class="stat-label" data-fr="Chapitres disponibles" data-en="Available chapters">Chapitres disponibles</div>
+      <div class="stat-num">804<span>+</span></div>
+      <div class="stat-label" data-fr="Chapitres · Collège & Lycée général" data-en="Chapters · Middle & High School">Chapitres · Collège & Lycée général</div>
     </div>
     <div class="stat-item">
       <div class="stat-num">6</div>
@@ -270,115 +279,164 @@ footer ul li a:hover{color:var(--white)}
   <div class="section-inner">
     <p class="section-tag" data-fr="PROGRAMME COMPLET" data-en="FULL CURRICULUM">PROGRAMME COMPLET</p>
     <h2 class="section-title" data-fr="De la 6ème à la Terminale" data-en="From middle school to graduation">De la 6ème à la Terminale</h2>
-    <p class="section-sub" data-fr="Un contenu pédagogique rigoureux, aligné sur le programme officiel de l'Éducation Nationale française." data-en="Rigorous educational content, aligned with the official French national curriculum.">Un contenu pédagogique rigoureux, aligné sur le programme officiel de l'Éducation Nationale française.</p>
+    <p class="section-sub" data-fr="Contenu pédagogique rigoureux aligné sur le programme officiel de l'Éducation Nationale française, enrichi d'exemples du monde francophone." data-en="Rigorous educational content aligned with the official French national curriculum, enriched with examples from the francophone world.">Contenu pédagogique rigoureux aligné sur le programme officiel de l'Éducation Nationale française, enrichi d'exemples du monde francophone.</p>
     <div class="levels-grid">
       <div class="level-card">
         <div class="level-icon">📗</div>
         <div class="level-name">6ème</div>
         <div class="level-subjects" data-fr="6 matières · 116 chapitres" data-en="6 subjects · 116 chapters">6 matières · 116 chapitres</div>
-        <span class="level-badge" data-fr="Disponible" data-en="Available">Disponible</span>
+        <span class="level-badge badge-available" data-fr="Disponible" data-en="Available">Disponible</span>
       </div>
       <div class="level-card">
         <div class="level-icon">📘</div>
         <div class="level-name">5ème</div>
         <div class="level-subjects" data-fr="6 matières · 111 chapitres" data-en="6 subjects · 111 chapters">6 matières · 111 chapitres</div>
-        <span class="level-badge" data-fr="Disponible" data-en="Available">Disponible</span>
+        <span class="level-badge badge-available" data-fr="Disponible" data-en="Available">Disponible</span>
       </div>
       <div class="level-card highlight">
         <div class="level-icon">📙</div>
         <div class="level-name">4ème</div>
         <div class="level-subjects" data-fr="6 matières · 109 chapitres" data-en="6 subjects · 109 chapters">6 matières · 109 chapitres</div>
-        <span class="level-badge" data-fr="Nouveau" data-en="New">Nouveau</span>
+        <span class="level-badge badge-new" data-fr="Nouveau" data-en="New">Nouveau</span>
       </div>
       <div class="level-card">
         <div class="level-icon">📕</div>
         <div class="level-name">3ème</div>
-        <div class="level-subjects" data-fr="6 matières · 123 chapitres" data-en="6 subjects · 123 chapters">6 matières · 123 chapitres</div>
-        <span class="level-badge" data-fr="Bientôt" data-en="Coming soon">Bientôt</span>
+        <div class="level-subjects" data-fr="6 matières · 123 chapitres + Annales DNB" data-en="6 subjects · 123 chapters + DNB Past Papers">6 matières · 123 chapitres + Annales DNB</div>
+        <span class="level-badge badge-soon" data-fr="Bientôt" data-en="Coming soon">Bientôt</span>
       </div>
       <div class="level-card">
         <div class="level-icon">🎓</div>
         <div class="level-name">2nde</div>
         <div class="level-subjects" data-fr="6 matières · 114 chapitres" data-en="6 subjects · 114 chapters">6 matières · 114 chapitres</div>
-        <span class="level-badge" data-fr="Bientôt" data-en="Coming soon">Bientôt</span>
+        <span class="level-badge badge-soon" data-fr="Bientôt" data-en="Coming soon">Bientôt</span>
       </div>
       <div class="level-card">
         <div class="level-icon">📐</div>
         <div class="level-name">1ère</div>
         <div class="level-subjects" data-fr="6 matières · 119 chapitres" data-en="6 subjects · 119 chapters">6 matières · 119 chapitres</div>
-        <span class="level-badge" data-fr="Bientôt" data-en="Coming soon">Bientôt</span>
+        <span class="level-badge badge-soon" data-fr="Bientôt" data-en="Coming soon">Bientôt</span>
       </div>
       <div class="level-card">
         <div class="level-icon">🏆</div>
         <div class="level-name">Terminale</div>
-        <div class="level-subjects" data-fr="6 matières · 112 chapitres" data-en="6 subjects · 112 chapters">6 matières · 112 chapitres</div>
-        <span class="level-badge" data-fr="Bientôt" data-en="Coming soon">Bientôt</span>
+        <div class="level-subjects" data-fr="6 matières · 112 chapitres + Annales Bac" data-en="6 subjects · 112 chapters + Bac Past Papers">6 matières · 112 chapitres + Annales Bac</div>
+        <span class="level-badge badge-soon" data-fr="Bientôt" data-en="Coming soon">Bientôt</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILIÈRES À VENIR -->
+<section class="tracks-section" id="filieres">
+  <div class="section-inner">
+    <p class="section-tag" data-fr="EXPANSION EN COURS" data-en="EXPANDING SOON">EXPANSION EN COURS</p>
+    <h2 class="section-title" data-fr="Toutes les filières, bientôt" data-en="All tracks, coming soon">Toutes les filières, bientôt</h2>
+    <p class="section-sub" data-fr="Nunya couvre déjà le lycée général. Nous travaillons activement pour intégrer toutes les filières du système éducatif francophone." data-en="Nunya already covers the general high school track. We are actively working to integrate all tracks of the francophone education system.">Nunya couvre déjà le lycée général. Nous travaillons activement pour intégrer toutes les filières du système éducatif francophone.</p>
+    <div class="tracks-grid">
+      <div class="track-card">
+        <span class="track-soon" data-fr="BIENTÔT" data-en="SOON">BIENTÔT</span>
+        <div class="track-icon">📊</div>
+        <div class="track-name" data-fr="Lycée Technologique" data-en="Technology High School">Lycée Technologique</div>
+        <div class="track-desc" data-fr="Filières technologiques du Bac — gestion, ingénierie, santé, design." data-en="Technology baccalaureate tracks — management, engineering, health, design.">Filières technologiques du Bac — gestion, ingénierie, santé, design.</div>
+        <div class="track-list">
+          <span class="track-tag">STMG</span>
+          <span class="track-tag">STI2D</span>
+          <span class="track-tag">ST2S</span>
+          <span class="track-tag">STL</span>
+          <span class="track-tag">STAV</span>
+          <span class="track-tag">STD2A</span>
+          <span class="track-tag">STHR</span>
+        </div>
+      </div>
+      <div class="track-card">
+        <span class="track-soon" data-fr="BIENTÔT" data-en="SOON">BIENTÔT</span>
+        <div class="track-icon">🔧</div>
+        <div class="track-name" data-fr="Lycée Professionnel" data-en="Vocational High School">Lycée Professionnel</div>
+        <div class="track-desc" data-fr="Bac Pro et CAP — plus de 80 spécialités pour préparer l'insertion professionnelle." data-en="Vocational Bac and CAP — over 80 specializations for professional integration.">Bac Pro et CAP — plus de 80 spécialités pour préparer l'insertion professionnelle.</div>
+        <div class="track-list">
+          <span class="track-tag">Bac Pro</span>
+          <span class="track-tag">CAP</span>
+          <span class="track-tag">80+ spécialités</span>
+        </div>
+      </div>
+      <div class="track-card">
+        <span class="track-soon" data-fr="BIENTÔT" data-en="SOON">BIENTÔT</span>
+        <div class="track-icon">🏛️</div>
+        <div class="track-name" data-fr="Classes Préparatoires" data-en="Preparatory Classes">Classes Préparatoires</div>
+        <div class="track-desc" data-fr="CPGE — deux ans d'excellence après le Bac pour intégrer les grandes écoles." data-en="CPGE — two years of excellence after the Bac to enter the grandes écoles.">CPGE — deux ans d'excellence après le Bac pour intégrer les grandes écoles.</div>
+        <div class="track-list">
+          <span class="track-tag">MPSI</span>
+          <span class="track-tag">PCSI</span>
+          <span class="track-tag">BCPST</span>
+          <span class="track-tag">ECG</span>
+          <span class="track-tag">HK</span>
+          <span class="track-tag">ENS</span>
+        </div>
+      </div>
+      <div class="track-card">
+        <span class="track-soon" data-fr="BIENTÔT" data-en="SOON">BIENTÔT</span>
+        <div class="track-icon">📚</div>
+        <div class="track-name" data-fr="BTS & Supérieur" data-en="BTS & Higher Education">BTS & Supérieur</div>
+        <div class="track-desc" data-fr="BTS et Licence — accompagnement post-Bac pour la réussite dans l'enseignement supérieur." data-en="BTS and Bachelor's degree — post-Bac support for success in higher education.">BTS et Licence — accompagnement post-Bac pour la réussite dans l'enseignement supérieur.</div>
+        <div class="track-list">
+          <span class="track-tag">BTS</span>
+          <span class="track-tag">Licence L1</span>
+          <span class="track-tag">Licence L2</span>
+          <span class="track-tag">Licence L3</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PRICING -->
-<section id="tarifs">
+<section id="tarifs" style="background:var(--gray-50)">
   <div class="section-inner">
     <p class="section-tag" data-fr="TARIFS" data-en="PRICING">TARIFS</p>
     <h2 class="section-title" data-fr="Un plan pour chaque élève" data-en="A plan for every student">Un plan pour chaque élève</h2>
-    <p class="section-sub" data-fr="Des tarifs pensés pour l'Afrique et la diaspora. Commencez gratuitement, évoluez à votre rythme." data-en="Pricing designed for Africa and the diaspora. Start free, grow at your own pace.">Des tarifs pensés pour l'Afrique et la diaspora. Commencez gratuitement, évoluez à votre rythme.</p>
+    <p class="section-sub" data-fr="Des tarifs pensés pour le monde francophone. Commencez gratuitement, évoluez à votre rythme." data-en="Pricing designed for the francophone world. Start free, grow at your own pace.">Des tarifs pensés pour le monde francophone. Commencez gratuitement, évoluez à votre rythme.</p>
     <div class="pricing-grid">
-      <!-- FREE -->
       <div class="price-card">
         <div class="price-name" data-fr="Gratuit" data-en="Free">Gratuit</div>
         <div class="price-desc" data-fr="Pour découvrir la plateforme sans engagement." data-en="To discover the platform with no commitment.">Pour découvrir la plateforme sans engagement.</div>
-        <div class="price-amount">
-          <span class="price-number">0</span>
-          <span class="price-currency">FCFA</span>
-        </div>
+        <div class="price-amount"><span class="price-number">0</span><span class="price-currency">FCFA</span></div>
         <ul class="price-features">
           <li data-fr="3 chapitres par matière" data-en="3 chapters per subject">3 chapitres par matière</li>
           <li data-fr="Cours complets" data-en="Full lessons">Cours complets</li>
           <li data-fr="Exercices de base" data-en="Basic exercises">Exercices de base</li>
           <li data-fr="Tuteur Kodjo (limité)" data-en="Kodjo tutor (limited)">Tuteur Kodjo (limité)</li>
           <li class="dimmed" data-fr="Exercices corrigés" data-en="Corrected exercises">Exercices corrigés</li>
-          <li class="dimmed" data-fr="Compétitions africaines" data-en="African competitions">Compétitions africaines</li>
+          <li class="dimmed" data-fr="Compétitions mondiales" data-en="World competitions">Compétitions mondiales</li>
         </ul>
         <a href="https://app.nunya.academy" class="btn-plan btn-plan-outline" data-fr="Commencer gratuitement" data-en="Start for free">Commencer gratuitement</a>
       </div>
-      <!-- ESSENTIEL -->
       <div class="price-card popular">
         <div class="price-badge" data-fr="⭐ LE PLUS POPULAIRE" data-en="⭐ MOST POPULAR">⭐ LE PLUS POPULAIRE</div>
         <div class="price-name">Essentiel</div>
         <div class="price-desc" data-fr="Accès complet aux cours et exercices corrigés." data-en="Full access to lessons and corrected exercises.">Accès complet aux cours et exercices corrigés.</div>
-        <div class="price-amount">
-          <span class="price-number">1 995</span>
-          <span class="price-currency">FCFA</span>
-          <span class="price-period" data-fr="/mois" data-en="/month">/mois</span>
-        </div>
+        <div class="price-amount"><span class="price-number">1 995</span><span class="price-currency">FCFA</span><span class="price-period" data-fr="/mois" data-en="/month">/mois</span></div>
         <ul class="price-features">
           <li data-fr="Tous les chapitres débloqués" data-en="All chapters unlocked">Tous les chapitres débloqués</li>
           <li data-fr="Cours complets + leçons détaillées" data-en="Full lessons + detailed content">Cours complets + leçons détaillées</li>
           <li data-fr="Tous les exercices corrigés" data-en="All corrected exercises">Tous les exercices corrigés</li>
           <li data-fr="Tuteur Kodjo illimité" data-en="Unlimited Kodjo tutor">Tuteur Kodjo illimité</li>
           <li data-fr="Suivi de progression" data-en="Progress tracking">Suivi de progression</li>
-          <li class="dimmed" data-fr="Compétitions africaines" data-en="African competitions">Compétitions africaines</li>
+          <li class="dimmed" data-fr="Compétitions mondiales" data-en="World competitions">Compétitions mondiales</li>
         </ul>
         <a href="https://app.nunya.academy" class="btn-plan btn-plan-blue" data-fr="Choisir Essentiel" data-en="Choose Essential">Choisir Essentiel</a>
       </div>
-      <!-- PREMIUM -->
       <div class="price-card">
         <div class="price-name">Premium</div>
         <div class="price-desc" data-fr="L'expérience complète pour exceller et se dépasser." data-en="The complete experience to excel and push your limits.">L'expérience complète pour exceller et se dépasser.</div>
-        <div class="price-amount">
-          <span class="price-number">2 995</span>
-          <span class="price-currency">FCFA</span>
-          <span class="price-period" data-fr="/mois" data-en="/month">/mois</span>
-        </div>
+        <div class="price-amount"><span class="price-number">2 995</span><span class="price-currency">FCFA</span><span class="price-period" data-fr="/mois" data-en="/month">/mois</span></div>
         <ul class="price-features">
           <li data-fr="Tout le plan Essentiel" data-en="Everything in Essential">Tout le plan Essentiel</li>
           <li data-fr="QCM et défis quotidiens" data-en="Daily quizzes and challenges">QCM et défis quotidiens</li>
-          <li data-fr="Classement africain" data-en="African leaderboard">Classement africain</li>
-          <li data-fr="Compétitions entre élèves" data-en="Student competitions">Compétitions entre élèves</li>
+          <li data-fr="Classement mondial" data-en="World leaderboard">Classement mondial</li>
+          <li data-fr="Compétitions mondiales" data-en="World competitions">Compétitions mondiales</li>
+          <li data-fr="Annales DNB et Bac corrigées" data-en="DNB and Bac past papers">Annales DNB et Bac corrigées</li>
           <li data-fr="Rapports de progression détaillés" data-en="Detailed progress reports">Rapports de progression détaillés</li>
-          <li data-fr="Accès prioritaire aux nouveautés" data-en="Priority access to new content">Accès prioritaire aux nouveautés</li>
         </ul>
         <a href="https://app.nunya.academy" class="btn-plan btn-plan-fill" data-fr="Choisir Premium" data-en="Choose Premium">Choisir Premium</a>
       </div>
@@ -394,35 +452,26 @@ footer ul li a:hover{color:var(--white)}
     <div class="testi-grid">
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text" data-fr='"Grâce à Nunya, j''ai enfin compris les fractions en 5ème. Les exercices corrigés m''ont vraiment aidé à progresser."' data-en='"Thanks to Nunya, I finally understood fractions in my 2nd year. The corrected exercises really helped me improve."'>"Grâce à Nunya, j'ai enfin compris les fractions en 5ème. Les exercices corrigés m'ont vraiment aidé à progresser."</p>
+        <p class="testi-text" data-fr='"Grâce à Nunya, j''ai enfin compris les fractions en 5ème. Les exercices corrigés m''ont vraiment aidé à progresser."' data-en='"Thanks to Nunya, I finally understood fractions. The corrected exercises really helped me improve."'>"Grâce à Nunya, j'ai enfin compris les fractions en 5ème. Les exercices corrigés m'ont vraiment aidé à progresser."</p>
         <div class="testi-author">
           <div class="testi-avatar">AM</div>
-          <div>
-            <div class="testi-name">Aminata M.</div>
-            <div class="testi-info" data-fr="5ème · Dakar, Sénégal" data-en="Grade 6 · Dakar, Senegal">5ème · Dakar, Sénégal</div>
-          </div>
+          <div><div class="testi-name">Aminata M.</div><div class="testi-info" data-fr="5ème · Dakar, Sénégal" data-en="Grade 6 · Dakar, Senegal">5ème · Dakar, Sénégal</div></div>
         </div>
       </div>
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text" data-fr='"Le tuteur Kodjo est incroyable. Il explique les notions de physique-chimie comme un vrai professeur, disponible à toute heure."' data-en='"The Kodjo tutor is incredible. He explains physics and chemistry concepts like a real teacher, available at any time."'>"Le tuteur Kodjo est incroyable. Il explique les notions de physique-chimie comme un vrai professeur, disponible à toute heure."</p>
+        <p class="testi-text" data-fr='"Le tuteur Kodjo est incroyable. Il explique les notions de physique-chimie comme un vrai professeur, disponible à toute heure."' data-en='"The Kodjo tutor is incredible. He explains physics concepts like a real teacher, available at any time."'>"Le tuteur Kodjo est incroyable. Il explique les notions de physique-chimie comme un vrai professeur, disponible à toute heure."</p>
         <div class="testi-author">
           <div class="testi-avatar">JK</div>
-          <div>
-            <div class="testi-name">Jean K.</div>
-            <div class="testi-info" data-fr="Terminale · Abidjan, Côte d'Ivoire" data-en="Grade 12 · Abidjan, Ivory Coast">Terminale · Abidjan, Côte d'Ivoire</div>
-          </div>
+          <div><div class="testi-name">Jean K.</div><div class="testi-info" data-fr="Terminale · Abidjan, Côte d'Ivoire" data-en="Grade 12 · Abidjan, Ivory Coast">Terminale · Abidjan, Côte d'Ivoire</div></div>
         </div>
       </div>
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text" data-fr='"Ma fille utilise Nunya tous les soirs. En 3 mois, ses notes en mathématiques sont passées de 8/20 à 15/20. Merci !"' data-en='"My daughter uses Nunya every evening. In 3 months, her math grades went from 8/20 to 15/20. Thank you!"'>"Ma fille utilise Nunya tous les soirs. En 3 mois, ses notes en mathématiques sont passées de 8/20 à 15/20. Merci !"</p>
+        <p class="testi-text" data-fr='"Ma fille utilise Nunya tous les soirs. En 3 mois, ses notes en mathématiques sont passées de 8/20 à 15/20. Merci !"' data-en='"My daughter uses Nunya every evening. In 3 months, her math grades went from 8 to 15 out of 20. Thank you!"'>"Ma fille utilise Nunya tous les soirs. En 3 mois, ses notes en mathématiques sont passées de 8/20 à 15/20. Merci !"</p>
         <div class="testi-author">
           <div class="testi-avatar">MO</div>
-          <div>
-            <div class="testi-name">Marie O.</div>
-            <div class="testi-info" data-fr="Parent · Libreville, Gabon" data-en="Parent · Libreville, Gabon">Parent · Libreville, Gabon</div>
-          </div>
+          <div><div class="testi-name">Marie O.</div><div class="testi-info" data-fr="Parent · Libreville, Gabon" data-en="Parent · Libreville, Gabon">Parent · Libreville, Gabon</div></div>
         </div>
       </div>
     </div>
@@ -452,15 +501,16 @@ footer ul li a:hover{color:var(--white)}
       <div class="footer-brand">
         <div class="logo">
           <div class="logo-mark"><span>N</span></div>
-          <span class="logo-text">Nunya<em>.</em>academy</span>
+          <span class="logo-text">Nunya<em>.</em></span>
         </div>
-        <p class="footer-desc" data-fr="La plateforme académique numérique pour les élèves francophones du monde entier." data-en="The digital academic platform for French-speaking students around the world.">La plateforme académique numérique pour les élèves francophones du monde entier.</p>
-        <p class="footer-ewe">Nunya — « Le savoir » en Ewe 🇹🇬🇬🇭</p>
+        <p class="footer-desc" data-fr="La plateforme académique numérique de référence pour les élèves francophones du monde entier." data-en="The world's reference digital academic platform for French-speaking students.">La plateforme académique numérique de référence pour les élèves francophones du monde entier.</p>
+        <p class="footer-ewe">Nunya — « Le savoir » 🇹🇬🇬🇭</p>
       </div>
       <div>
         <h4 data-fr="Plateforme" data-en="Platform">Plateforme</h4>
         <ul>
           <li><a href="#niveaux" data-fr="Niveaux" data-en="Levels">Niveaux</a></li>
+          <li><a href="#filieres" data-fr="Filières à venir" data-en="Coming tracks">Filières à venir</a></li>
           <li><a href="#tarifs" data-fr="Tarifs" data-en="Pricing">Tarifs</a></li>
           <li><a href="https://app.nunya.academy" data-fr="Se connecter" data-en="Sign in">Se connecter</a></li>
           <li><a href="https://app.nunya.academy" data-fr="S'inscrire" data-en="Sign up">S'inscrire</a></li>
@@ -486,7 +536,7 @@ footer ul li a:hover{color:var(--white)}
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Nunya Academy. <span data-fr="Tous droits réservés." data-en="All rights reserved.">Tous droits réservés.</span></span>
+      <span>© 2026 Nunya Academy — <span data-fr="Le savoir, pour tous." data-en="Knowledge, for everyone.">Le savoir, pour tous.</span></span>
       <div style="display:flex;gap:20px">
         <a href="#" data-fr="Mentions légales" data-en="Legal">Mentions légales</a>
         <a href="#" data-fr="Confidentialité" data-en="Privacy">Confidentialité</a>
@@ -497,51 +547,87 @@ footer ul li a:hover{color:var(--white)}
 </footer>
 
 <script>
+// ── FLAGS DATA ──
+const FLAGS = [
+  {code:'fr',name:'France'},{code:'ga',name:'Gabon'},{code:'ci',name:"Côte d'Ivoire"},
+  {code:'cm',name:'Cameroun'},{code:'sn',name:'Sénégal'},{code:'bj',name:'Bénin'},
+  {code:'ml',name:'Mali'},{code:'bf',name:'Burkina Faso'},{code:'tg',name:'Togo'},
+  {code:'ne',name:'Niger'},{code:'cd',name:'RD Congo'},{code:'cg',name:'Congo'},
+  {code:'ma',name:'Maroc'},{code:'dz',name:'Algérie'},{code:'tn',name:'Tunisie'},
+  {code:'gn',name:'Guinée'},{code:'mg',name:'Madagascar'},{code:'rw',name:'Rwanda'},
+  {code:'bi',name:'Burundi'},{code:'ch',name:'Suisse'},{code:'be',name:'Belgique'},
+  {code:'ca',name:'Canada'},{code:'lu',name:'Luxembourg'},{code:'mu',name:'Maurice'},
+  {code:'sc',name:'Seychelles'},{code:'dj',name:'Djibouti'},{code:'ht',name:'Haïti'},
+  {code:'vn',name:'Vietnam'},{code:'lb',name:'Liban'},{code:'us',name:'USA'},
+  {code:'gb',name:'UK'},{code:'de',name:'Allemagne'},{code:'es',name:'Espagne'},
+  {code:'pt',name:'Portugal'},{code:'it',name:'Italie'},{code:'nl',name:'Pays-Bas'},
+  {code:'au',name:'Australie'},{code:'jp',name:'Japon'},{code:'br',name:'Brésil'},
+  {code:'ar',name:'Argentine'},{code:'mx',name:'Mexique'},{code:'kr',name:'Corée'},
+];
+
+// Dupliquer pour boucle infinie
+const track = document.getElementById('flagsTrack');
+const doubled = [...FLAGS,...FLAGS];
+doubled.forEach(({code,name})=>{
+  const pill = document.createElement('div');
+  pill.className = 'flag-pill';
+  pill.setAttribute('title', name);
+  const img = document.createElement('img');
+  img.src = `https://flagcdn.com/32x24/${code}.png`;
+  img.alt = name;
+  img.width = 32;
+  img.height = 24;
+  img.style.cssText = 'border-radius:3px;object-fit:cover;box-shadow:0 1px 4px rgba(0,0,0,0.15)';
+  pill.appendChild(img);
+  track.appendChild(pill);
+});
+
+// ── FAQ DATA ──
 const FAQS = {
   fr:[
-    {q:"Nunya est-il gratuit ?",a:"Oui, vous pouvez accéder gratuitement à 3 chapitres par matière sans aucune carte bancaire requise. Pour un accès complet, nos plans Essentiel (1 995 FCFA/mois) et Premium (2 995 FCFA/mois) sont disponibles."},
-    {q:"Dans quels pays Nunya est-il disponible ?",a:"Nunya est accessible partout dans le monde depuis un navigateur web. Il est particulièrement adapté aux élèves de l'Afrique francophone (Gabon, Sénégal, Côte d'Ivoire, Cameroun, Bénin...) et de la diaspora en France et en Europe."},
-    {q:"Le programme est-il aligné sur le curriculum officiel ?",a:"Oui. Tout le contenu de Nunya est aligné sur le programme officiel de l'Éducation Nationale française, utilisé dans la plupart des pays francophones d'Afrique subsaharienne."},
-    {q:"Qu'est-ce que le tuteur Kodjo ?",a:"Kodjo est le tuteur IA intégré à Nunya. Disponible 24h/24, il répond à vos questions sur les cours, explique les notions difficiles et vous aide à comprendre les exercices. Les élèves Premium ont un accès illimité."},
-    {q:"Comment fonctionne la progression ?",a:"Chaque chapitre contient des leçons, des exercices et des QCM. Votre progression est enregistrée automatiquement et visible depuis votre tableau de bord. Les chapitres se débloquent au fur et à mesure de votre avancement."},
-    {q:"Les contenus des niveaux lycée sont-ils disponibles ?",a:"Les niveaux 6ème, 5ème et 4ème sont déjà disponibles avec du contenu complet. Les niveaux 3ème, 2nde, 1ère et Terminale sont en cours de production et seront disponibles très prochainement."}
+    {q:"Nunya est-il gratuit ?",a:"Oui, 3 chapitres par matière sont accessibles gratuitement, sans carte bancaire. Pour un accès complet, nos plans Essentiel (1 995 FCFA/mois) et Premium (2 995 FCFA/mois) sont disponibles."},
+    {q:"Dans quels pays Nunya est-il disponible ?",a:"Nunya est accessible dans plus de 120 pays depuis n'importe quel navigateur web. Il est particulièrement adapté aux élèves francophones d'Afrique, de France, d'Europe, d'Amérique du Nord et de toute la diaspora mondiale."},
+    {q:"Le programme est-il officiel ?",a:"Oui. Tout le contenu de Nunya est aligné sur le programme officiel de l'Éducation Nationale française, utilisé dans la majorité des pays francophones. Les exemples sont enrichis de références culturelles francophones mondiales."},
+    {q:"Qu'est-ce que le tuteur Kodjo ?",a:"Kodjo est le tuteur IA de Nunya. Disponible 24h/24 et 7j/7, il répond à toutes vos questions sur les cours, explique les notions difficiles et guide chaque élève à son propre rythme. Accessible en illimité avec les plans payants."},
+    {q:"Les annales du DNB et du Bac sont-elles disponibles ?",a:"Les annales du DNB (3ème) et du Bac (Terminale) seront disponibles prochainement dans la section dédiée de chaque niveau. Sujets corrigés des 5 dernières années, avec chronomètre intégré pour s'entraîner en conditions réelles."},
+    {q:"Quand les filières STMG, Bac Pro et la Prépa seront-elles disponibles ?",a:"Nous travaillons activement sur l'intégration du lycée technologique (STMG, STI2D, ST2S...), du lycée professionnel (Bac Pro, CAP) et des classes préparatoires (MPSI, ECG...). Ces contenus arriveront progressivement en 2026-2027."},
   ],
   en:[
-    {q:"Is Nunya free?",a:"Yes, you can access 3 chapters per subject for free with no credit card required. For full access, our Essential (1,995 FCFA/month) and Premium (2,995 FCFA/month) plans are available."},
-    {q:"Which countries is Nunya available in?",a:"Nunya is accessible worldwide from a web browser. It is particularly suited to students in French-speaking Africa (Gabon, Senegal, Ivory Coast, Cameroon, Benin...) and the diaspora in France and Europe."},
-    {q:"Is the curriculum aligned with the official program?",a:"Yes. All Nunya content is aligned with the official French National Education curriculum, used in most French-speaking sub-Saharan African countries."},
-    {q:"What is the Kodjo tutor?",a:"Kodjo is the AI tutor integrated into Nunya. Available 24/7, he answers your questions about lessons, explains difficult concepts and helps you understand exercises. Premium students have unlimited access."},
-    {q:"How does progress tracking work?",a:"Each chapter contains lessons, exercises and quizzes. Your progress is automatically saved and visible from your dashboard. Chapters unlock as you advance."},
-    {q:"Is high school content available?",a:"6th, 5th and 4th grade levels are already available with full content. 3rd grade through graduation levels are in production and will be available very soon."}
+    {q:"Is Nunya free?",a:"Yes, 3 chapters per subject are free with no credit card required. For full access, our Essential (1,995 FCFA/month) and Premium (2,995 FCFA/month) plans are available."},
+    {q:"Which countries is Nunya available in?",a:"Nunya is accessible in over 120 countries from any web browser. It is especially suited for French-speaking students in Africa, France, Europe, North America and the global diaspora."},
+    {q:"Is the curriculum official?",a:"Yes. All Nunya content is aligned with the official French National Education curriculum, used in the majority of French-speaking countries. Examples are enriched with global francophone cultural references."},
+    {q:"What is the Kodjo tutor?",a:"Kodjo is Nunya's AI tutor. Available 24/7, he answers all your questions about lessons, explains difficult concepts and guides each student at their own pace. Unlimited access with paid plans."},
+    {q:"Are DNB and Bac past papers available?",a:"DNB (3rd grade) and Bac (final year) past papers will be available soon in the dedicated section of each level. Corrected papers from the last 5 years, with an integrated timer to practice in real exam conditions."},
+    {q:"When will STMG, Bac Pro and Prep tracks be available?",a:"We are actively working on integrating the technology high school (STMG, STI2D, ST2S...), vocational high school (Bac Pro, CAP) and preparatory classes (MPSI, ECG...). These will be progressively added throughout 2026-2027."},
   ]
 };
 
-let currentLang = 'fr';
+let currentLang='fr';
 
 function buildFAQ(){
-  const list = document.getElementById('faqList');
-  list.innerHTML = '';
-  FAQS[currentLang].forEach((item,i)=>{
-    const div = document.createElement('div');
-    div.className = 'faq-item';
-    div.innerHTML = `<button class="faq-q" onclick="toggleFaq(this)"><span>${item.q}</span><span class="arrow">▾</span></button><div class="faq-a">${item.a}</div>`;
+  const list=document.getElementById('faqList');
+  list.innerHTML='';
+  FAQS[currentLang].forEach(item=>{
+    const div=document.createElement('div');
+    div.className='faq-item';
+    div.innerHTML=`<button class="faq-q" onclick="toggleFaq(this)"><span>${item.q}</span><span class="arrow">▾</span></button><div class="faq-a">${item.a}</div>`;
     list.appendChild(div);
   });
 }
 
 function toggleFaq(btn){
-  const ans = btn.nextElementSibling;
-  const isOpen = ans.classList.contains('open');
+  const ans=btn.nextElementSibling;
+  const isOpen=ans.classList.contains('open');
   document.querySelectorAll('.faq-a.open').forEach(a=>{a.classList.remove('open');a.previousElementSibling.classList.remove('open')});
   if(!isOpen){ans.classList.add('open');btn.classList.add('open')}
 }
 
 function setLang(lang){
-  currentLang = lang;
+  currentLang=lang;
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
   document.querySelectorAll('.lang-btn').forEach(b=>{if(b.textContent===lang.toUpperCase())b.classList.add('active')});
   document.querySelectorAll('[data-'+lang+']').forEach(el=>{
-    const val = el.getAttribute('data-'+lang);
+    const val=el.getAttribute('data-'+lang);
     if(el.tagName==='H1'||el.tagName==='H2'){el.innerHTML=val}
     else{el.textContent=val}
   });
@@ -550,10 +636,9 @@ function setLang(lang){
 
 buildFAQ();
 
-// Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
-    const target = document.querySelector(a.getAttribute('href'));
+    const target=document.querySelector(a.getAttribute('href'));
     if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'})}
   });
 });
