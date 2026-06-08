@@ -598,20 +598,52 @@ footer ul li a:hover{color:var(--white)}
 <script>
 // ── FLAGS DATA ──
 const FLAGS = [
-  {code:'fr',name:'France'},{code:'ga',name:'Gabon'},{code:'ci',name:"Côte d'Ivoire"},
-  {code:'cm',name:'Cameroun'},{code:'sn',name:'Sénégal'},{code:'bj',name:'Bénin'},
-  {code:'ml',name:'Mali'},{code:'bf',name:'Burkina Faso'},{code:'tg',name:'Togo'},
-  {code:'ne',name:'Niger'},{code:'cd',name:'RD Congo'},{code:'cg',name:'Congo'},
+  // Afrique francophone
+  {code:'ga',name:'Gabon'},{code:'cm',name:'Cameroun'},{code:'sn',name:'Sénégal'},
+  {code:'ci',name:"Côte d'Ivoire"},{code:'ml',name:'Mali'},{code:'bf',name:'Burkina Faso'},
+  {code:'tg',name:'Togo'},{code:'bj',name:'Bénin'},{code:'ne',name:'Niger'},
+  {code:'cd',name:'RD Congo'},{code:'cg',name:'Congo'},{code:'cf',name:'Centrafrique'},
+  {code:'td',name:'Tchad'},{code:'gn',name:'Guinée'},{code:'gq',name:'Guinée Équatoriale'},
+  {code:'bi',name:'Burundi'},{code:'rw',name:'Rwanda'},
+  {code:'mg',name:'Madagascar'},{code:'km',name:'Comores'},{code:'sc',name:'Seychelles'},
+  {code:'mu',name:'Maurice'},{code:'dj',name:'Djibouti'},{code:'yt',name:'Mayotte'},
+  {code:'re',name:'La Réunion'},{code:'pm',name:'St-Pierre-et-Miquelon'},
+  // Afrique du Nord
   {code:'ma',name:'Maroc'},{code:'dz',name:'Algérie'},{code:'tn',name:'Tunisie'},
-  {code:'gn',name:'Guinée'},{code:'mg',name:'Madagascar'},{code:'rw',name:'Rwanda'},
-  {code:'bi',name:'Burundi'},{code:'ch',name:'Suisse'},{code:'be',name:'Belgique'},
-  {code:'ca',name:'Canada'},{code:'lu',name:'Luxembourg'},{code:'mu',name:'Maurice'},
-  {code:'sc',name:'Seychelles'},{code:'dj',name:'Djibouti'},{code:'ht',name:'Haïti'},
-  {code:'vn',name:'Vietnam'},{code:'lb',name:'Liban'},{code:'us',name:'USA'},
-  {code:'gb',name:'UK'},{code:'de',name:'Allemagne'},{code:'es',name:'Espagne'},
-  {code:'pt',name:'Portugal'},{code:'it',name:'Italie'},{code:'nl',name:'Pays-Bas'},
-  {code:'au',name:'Australie'},{code:'jp',name:'Japon'},{code:'br',name:'Brésil'},
-  {code:'ar',name:'Argentine'},{code:'mx',name:'Mexique'},{code:'kr',name:'Corée'},
+  {code:'ly',name:'Libye'},{code:'eg',name:'Égypte'},
+  // Afrique anglophone/autre
+  {code:'ng',name:'Nigeria'},{code:'gh',name:'Ghana'},{code:'ke',name:'Kenya'},
+  {code:'tz',name:'Tanzanie'},{code:'et',name:'Éthiopie'},{code:'za',name:'Afrique du Sud'},
+  {code:'ug',name:'Ouganda'},{code:'zm',name:'Zambie'},{code:'zw',name:'Zimbabwe'},
+  {code:'mz',name:'Mozambique'},{code:'ao',name:'Angola'},{code:'mw',name:'Malawi'},
+  {code:'sl',name:'Sierra Leone'},{code:'lr',name:'Libéria'},{code:'gm',name:'Gambie'},
+  {code:'gw',name:'Guinée-Bissau'},{code:'cv',name:'Cap-Vert'},{code:'st',name:'São Tomé'},
+  {code:'er',name:'Érythrée'},{code:'so',name:'Somalie'},{code:'sd',name:'Soudan'},
+  {code:'ss',name:'Soudan du Sud'},{code:'mr',name:'Mauritanie'},
+  // Europe
+  {code:'fr',name:'France'},{code:'be',name:'Belgique'},{code:'ch',name:'Suisse'},
+  {code:'lu',name:'Luxembourg'},{code:'mc',name:'Monaco'},{code:'gb',name:'Royaume-Uni'},
+  {code:'de',name:'Allemagne'},{code:'es',name:'Espagne'},{code:'pt',name:'Portugal'},
+  {code:'it',name:'Italie'},{code:'nl',name:'Pays-Bas'},{code:'se',name:'Suède'},
+  {code:'no',name:'Norvège'},{code:'dk',name:'Danemark'},{code:'fi',name:'Finlande'},
+  {code:'pl',name:'Pologne'},{code:'at',name:'Autriche'},{code:'gr',name:'Grèce'},
+  {code:'ie',name:'Irlande'},{code:'ro',name:'Roumanie'},{code:'hu',name:'Hongrie'},
+  // Amériques
+  {code:'us',name:'États-Unis'},{code:'ca',name:'Canada'},{code:'mx',name:'Mexique'},
+  {code:'br',name:'Brésil'},{code:'ar',name:'Argentine'},{code:'co',name:'Colombie'},
+  {code:'cl',name:'Chili'},{code:'pe',name:'Pérou'},{code:'ve',name:'Venezuela'},
+  {code:'ht',name:'Haïti'},{code:'gp',name:'Guadeloupe'},{code:'mq',name:'Martinique'},
+  {code:'gf',name:'Guyane'},{code:'cu',name:'Cuba'},{code:'do',name:'Rép. Dominicaine'},
+  {code:'pa',name:'Panama'},{code:'cr',name:'Costa Rica'},{code:'bo',name:'Bolivie'},
+  {code:'uy',name:'Uruguay'},{code:'ec',name:'Équateur'},{code:'py',name:'Paraguay'},
+  // Asie & Océanie
+  {code:'cn',name:'Chine'},{code:'jp',name:'Japon'},{code:'in',name:'Inde'},
+  {code:'kr',name:'Corée du Sud'},{code:'vn',name:'Vietnam'},{code:'th',name:'Thaïlande'},
+  {code:'id',name:'Indonésie'},{code:'ph',name:'Philippines'},{code:'sg',name:'Singapour'},
+  {code:'lb',name:'Liban'},{code:'ae',name:'Émirats Arabes'},
+  {code:'sa',name:'Arabie Saoudite'},{code:'tr',name:'Turquie'},{code:'il',name:'Israël'},
+  {code:'au',name:'Australie'},{code:'nz',name:'Nouvelle-Zélande'},{code:'pf',name:'Polynésie'},
+  {code:'nc',name:'Nouvelle-Calédonie'},{code:'wf',name:'Wallis-et-Futuna'},
 ];
 
 // Dupliquer pour boucle infinie
