@@ -69,12 +69,12 @@ nav ul li a:hover{color:var(--navy);background:var(--gray-50)}
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ── STATS ── */
-.stats{background:var(--navy);padding:56px 24px}
-.stats-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:32px}
+.stats{background:var(--navy);padding:40px 12px}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
 .stat-item{text-align:center}
-.stat-num{font-family:var(--font-display);font-size:52px;font-weight:700;color:var(--white);line-height:1}
+.stat-num{font-family:var(--font-display);font-size:clamp(28px,3.5vw,44px);font-weight:700;color:var(--white);line-height:1}
 .stat-num span{color:var(--gold)}
-.stat-label{font-size:14px;color:rgba(255,255,255,0.6);margin-top:6px;font-weight:400}
+.stat-label{font-size:11px;color:rgba(255,255,255,0.6);margin-top:4px;font-weight:400}
 
 /* ── SECTIONS ── */
 section{padding:88px 24px}
@@ -126,8 +126,8 @@ section{padding:88px 24px}
 .track-tag{background:var(--gray-100);color:var(--gray-600);font-size:11px;font-weight:500;padding:3px 10px;border-radius:100px}
 
 /* ── PRICING ── */
-.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:48px;max-width:960px}
-.price-card{background:var(--white);border:1.5px solid var(--gray-200);border-radius:var(--radius-lg);padding:32px;position:relative;transition:all .25s}
+.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:48px;max-width:1200px}
+.price-card{background:var(--white);border:1.5px solid var(--gray-200);border-radius:var(--radius-lg);padding:20px;position:relative;transition:all .25s}
 .price-card:hover{box-shadow:var(--shadow-md)}
 .price-card.popular{border-color:var(--blue);box-shadow:0 0 0 4px rgba(26,86,219,0.06)}
 .price-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--blue);color:var(--white);font-size:11px;font-weight:600;padding:4px 16px;border-radius:100px;letter-spacing:0.5px;white-space:nowrap}
@@ -135,7 +135,7 @@ section{padding:88px 24px}
 .price-desc{font-size:14px;color:var(--gray-400);margin-bottom:24px;line-height:1.6}
 .price-amount{display:flex;align-items:baseline;gap:4px;margin-bottom:28px}
 .price-currency{font-size:16px;font-weight:500;color:var(--gray-600)}
-.price-number{font-family:var(--font-display);font-size:52px;font-weight:700;color:var(--navy);line-height:1}
+.price-number{font-family:var(--font-display);font-size:36px;font-weight:700;color:var(--navy);line-height:1}
 .price-period{font-size:14px;color:var(--gray-400);margin-left:4px}
 .price-features{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
 .price-features li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--gray-600);line-height:1.5}
@@ -202,7 +202,8 @@ footer ul li a:hover{color:var(--white)}
   .footer-top{grid-template-columns:1fr 1fr}
   .footer-top>div:first-child{grid-column:1/-1}
   .hero h1{font-size:40px}
-  .stats-inner{grid-template-columns:1fr 1fr}
+  .stats-inner{grid-template-columns:repeat(3,1fr);gap:4px}
+  .pricing-grid{grid-template-columns:1fr 1fr;gap:10px}
 }
 </style>
 </head>
@@ -489,7 +490,7 @@ footer ul li a:hover{color:var(--white)}
         <div class="price-name">Essentiel</div>
         <div class="price-desc" data-fr="Accès complet aux cours et exercices corrigés." data-en="Full access to lessons and corrected exercises.">Accès complet aux cours et exercices corrigés.</div>
         <div class="price-amount">
-          <span class="price-number price-display" data-fcfa="1 999" data-eur="2,99" data-usd="3,49" data-gbp="2,69" data-cad="4,49" data-cny="22,99" data-aed="12,99">1 999</span>
+          <span class="price-number price-display" data-fcfa="1 999" data-eur="2,99" data-usd="3,29" data-gbp="2,59" data-cad="4,39" data-cny="21,89" data-aed="10,99">1 999</span>
           <span class="price-currency price-currency-display" data-fcfa="FCFA" data-eur="€" data-usd="$" data-gbp="£" data-cad="CA$" data-cny="¥" data-aed="د.إ">FCFA</span>
           <span class="price-period" data-fr="/mois" data-en="/month">/mois</span>
         </div>
@@ -509,7 +510,7 @@ footer ul li a:hover{color:var(--white)}
         <div class="price-name">Premium</div>
         <div class="price-desc" data-fr="L'expérience complète pour exceller et se dépasser." data-en="The complete experience to excel.">L'expérience complète pour exceller et se dépasser.</div>
         <div class="price-amount">
-          <span class="price-number price-display" data-fcfa="3 299" data-eur="4,99" data-usd="5,49" data-gbp="4,49" data-cad="7,49" data-cny="38,99" data-aed="18,99">3 299</span>
+          <span class="price-number price-display" data-fcfa="3 299" data-eur="4,99" data-usd="5,39" data-gbp="4,29" data-cad="7,39" data-cny="39,19" data-aed="18,39">3 299</span>
           <span class="price-currency price-currency-display" data-fcfa="FCFA" data-eur="€" data-usd="$" data-gbp="£" data-cad="CA$" data-cny="¥" data-aed="د.إ">FCFA</span>
           <span class="price-period" data-fr="/mois" data-en="/month">/mois</span>
         </div>
@@ -530,7 +531,7 @@ footer ul li a:hover{color:var(--white)}
         <div class="price-name">Famille</div>
         <div class="price-desc" data-fr="Jusqu'à 4 enfants + dashboard parents complet." data-en="Up to 4 children + full parent dashboard.">Jusqu'à 4 enfants + dashboard parents complet.</div>
         <div class="price-amount">
-          <span class="price-number price-display" data-fcfa="6 599" data-eur="9,99" data-usd="10,99" data-gbp="8,99" data-cad="14,99" data-cny="77,99" data-aed="36,99">6 599</span>
+          <span class="price-number price-display" data-fcfa="6 599" data-eur="9,99" data-usd="10,79" data-gbp="8,49" data-cad="14,69" data-cny="78,39" data-aed="36,69">6 599</span>
           <span class="price-currency price-currency-display" data-fcfa="FCFA" data-eur="€" data-usd="$" data-gbp="£" data-cad="CA$" data-cny="¥" data-aed="د.إ">FCFA</span>
           <span class="price-period" data-fr="/mois" data-en="/month">/mois</span>
         </div>
