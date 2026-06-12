@@ -6,7 +6,6 @@
 <title>Nunya Academy — Le savoir, pour tous</title>
 <meta name="description" content="La plateforme académique numérique de référence pour les élèves francophones du monde entier. Du secondaire au supérieur, un tuteur IA, des compétitions mondiales et la préparation au DNB et au Baccalauréat — pour réussir.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -47,7 +46,7 @@ nav ul li a:hover{color:var(--navy);background:var(--gray-50)}
 .hero::before{content:'';position:absolute;top:-120px;right:-120px;width:500px;height:500px;background:radial-gradient(circle,rgba(26,86,219,0.06) 0%,transparent 70%);pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:-60px;left:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(201,151,44,0.05) 0%,transparent 70%);pointer-events:none}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--gold-light);border:1px solid rgba(201,151,44,0.3);padding:6px 16px;border-radius:100px;font-size:13px;font-weight:500;color:var(--gold);margin-bottom:28px}
-
+.hero-badge::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold)}
 .hero h1{font-family:var(--font-display);font-size:clamp(48px,6vw,80px);font-weight:700;color:var(--navy);line-height:1.1;letter-spacing:-1px;margin-bottom:24px;max-width:800px;margin-left:auto;margin-right:auto}
 .hero h1 em{color:var(--blue);font-style:normal}
 .hero-sub{font-size:18px;color:var(--gray-600);max-width:580px;margin:0 auto 40px;font-weight:400;line-height:1.7}
@@ -236,8 +235,8 @@ footer ul li a:hover{color:var(--white)}
 <!-- HERO -->
 <section class="hero">
   <div class="hero-badge" data-fr="✦ Nunya — Le savoir" data-en="✦ Nunya — Knowledge">✦ Nunya — Le savoir</div>
-  <h1 data-fr="Le savoir,<br><em>pour tous</em>." data-en="Knowledge,<br><em>for everyone</em>.">Le savoir,<br><em>pour tous</em>.</h1>
-  <p class="hero-sub" data-fr="La plateforme académique numérique de référence pour les élèves francophones du monde entier. Du secondaire au supérieur, un tuteur IA, des compétitions mondiales et la préparation au DNB et au Baccalauréat — pour réussir." data-en="The world's reference digital academic platform for French-speaking students. From secondary school to higher education, an AI tutor, world competitions and preparation for the DNB and Baccalauréat — to succeed.">La plateforme académique numérique de référence pour les élèves francophones du monde entier. Du secondaire au supérieur, un tuteur IA, des compétitions mondiales et la préparation au DNB et au Baccalauréat — pour réussir.</p>
+  <h1 data-fr="Le savoir,<br>pour <em>tous</em>." data-en="Knowledge,<br>for <em>everyone</em>.">Le savoir,<br>pour <em>tous</em>.</h1>
+  <p class="hero-sub" data-fr="La plateforme académique numérique de référence pour les élèves francophones du monde entier. Du secondaire au supérieur, un tuteur IA, des compétitions mondiales et la préparation au DNB et au Baccalauréat — pour réussir." data-en="The world's reference digital academic platform for French-speaking students. From middle school to prep school, in every subject.">La plateforme académique numérique de référence pour les élèves francophones du monde entier. Du secondaire au supérieur, un tuteur IA, des compétitions mondiales et la préparation au DNB et au Baccalauréat — pour réussir.</p>
   <div class="hero-ctas">
     <a href="https://app.nunya.academy" class="btn-primary" data-fr="Commencer gratuitement →" data-en="Get started for free →">Commencer gratuitement →</a>
     <a href="#niveaux" class="btn-secondary" data-fr="Découvrir la plateforme" data-en="Explore the platform">Découvrir la plateforme</a>
@@ -254,25 +253,26 @@ footer ul li a:hover{color:var(--white)}
 <div class="stats">
   <div class="stats-inner">
     <div class="stat-item">
-      <div class="stat-num">120<span>+</span></div>
+      <div class="stat-num" style="font-size:36px;">120<span>+</span></div>
       <div class="stat-label" data-fr="Pays dans le monde" data-en="Countries worldwide">Pays dans le monde</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">7<span>+</span></div>
+      <div class="stat-num" style="font-size:36px;">7<span>+</span></div>
       <div class="stat-label" data-fr="Niveaux scolaires" data-en="School levels">Niveaux scolaires</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">6<span>+</span></div>
+      <div class="stat-num" style="font-size:36px;">6<span>+</span></div>
       <div class="stat-label" data-fr="Matières fondamentales" data-en="Core subjects">Matières fondamentales</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">804<span>+</span></div>
-      <div class="stat-label" data-fr="Chapitres disponibles" data-en="Chapters available">Chapitres disponibles</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">16 000<span>+</span></div>
+      <div class="stat-num" style="font-size:36px;">16 000<span>+</span></div>
       <div class="stat-label" data-fr="Exercices + Corrigés" data-en="Exercises + Solutions">Exercices + Corrigés</div>
     </div>
+    <div class="stat-item">
+      <div class="stat-num" style="font-size:36px;">804<span>+</span></div>
+      <div class="stat-label" data-fr="Chapitres disponibles" data-en="Chapters available">Chapitres disponibles</div>
+    </div>
+    
   </div>
 </div>
 
@@ -450,11 +450,28 @@ footer ul li a:hover{color:var(--white)}
     <p class="section-tag" data-fr="TARIFS" data-en="PRICING">TARIFS</p>
     <h2 class="section-title" data-fr="Un plan pour chaque élève" data-en="A plan for every student">Un plan pour chaque élève</h2>
     <p class="section-sub" data-fr="Des tarifs pensés pour le monde francophone. Commencez gratuitement, évoluez à votre rythme." data-en="Pricing designed for the francophone world. Start free, grow at your own pace.">Des tarifs pensés pour le monde francophone. Commencez gratuitement, évoluez à votre rythme.</p>
+
+    <!-- Switcher de devise -->
+    <div style="display:flex;gap:8px;margin:24px 0;flex-wrap:wrap;">
+      <button onclick="setCurrency('fcfa')" id="btn-fcfa" class="currency-btn active" style="padding:8px 20px;border-radius:100px;border:1.5px solid var(--navy);background:var(--navy);color:#fff;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-body);transition:all .2s;">FCFA</button>
+      <button onclick="setCurrency('eur')" id="btn-eur" class="currency-btn" style="padding:8px 20px;border-radius:100px;border:1.5px solid var(--gray-200);background:transparent;color:var(--gray-600);font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-body);transition:all .2s;">€ EUR</button>
+      <button onclick="setCurrency('usd')" id="btn-usd" class="currency-btn" style="padding:8px 20px;border-radius:100px;border:1.5px solid var(--gray-200);background:transparent;color:var(--gray-600);font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-body);transition:all .2s;">$ USD</button>
+      <button onclick="setCurrency('gbp')" id="btn-gbp" class="currency-btn" style="padding:8px 20px;border-radius:100px;border:1.5px solid var(--gray-200);background:transparent;color:var(--gray-600);font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-body);transition:all .2s;">£ GBP</button>
+      <button onclick="setCurrency('cad')" id="btn-cad" class="currency-btn" style="padding:8px 20px;border-radius:100px;border:1.5px solid var(--gray-200);background:transparent;color:var(--gray-600);font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-body);transition:all .2s;">CA$ CAD</button>
+      <button onclick="setCurrency('cny')" id="btn-cny" class="currency-btn" style="padding:8px 20px;border-radius:100px;border:1.5px solid var(--gray-200);background:transparent;color:var(--gray-600);font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-body);transition:all .2s;">¥ CNY</button>
+      <button onclick="setCurrency('aed')" id="btn-aed" class="currency-btn" style="padding:8px 20px;border-radius:100px;border:1.5px solid var(--gray-200);background:transparent;color:var(--gray-600);font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font-body);transition:all .2s;">د.إ AED</button>
+    </div>
+
     <div class="pricing-grid">
+
+      <!-- GRATUIT -->
       <div class="price-card">
         <div class="price-name" data-fr="Gratuit" data-en="Free">Gratuit</div>
         <div class="price-desc" data-fr="Pour découvrir la plateforme sans engagement." data-en="To discover the platform with no commitment.">Pour découvrir la plateforme sans engagement.</div>
-        <div class="price-amount"><span class="price-number">0</span><span class="price-currency">FCFA</span></div>
+        <div class="price-amount">
+          <span class="price-number price-display" data-fcfa="0" data-eur="0" data-usd="0" data-gbp="0" data-cad="0" data-cny="0" data-aed="0">0</span>
+          <span class="price-currency price-currency-display" data-fcfa="FCFA" data-eur="€" data-usd="$" data-gbp="£" data-cad="CA$" data-cny="¥" data-aed="د.إ">FCFA</span>
+        </div>
         <ul class="price-features">
           <li data-fr="3 chapitres par matière" data-en="3 chapters per subject">3 chapitres par matière</li>
           <li data-fr="Cours complets" data-en="Full lessons">Cours complets</li>
@@ -465,14 +482,20 @@ footer ul li a:hover{color:var(--white)}
         </ul>
         <a href="https://app.nunya.academy" class="btn-plan btn-plan-outline" data-fr="Commencer gratuitement" data-en="Start for free">Commencer gratuitement</a>
       </div>
+
+      <!-- ESSENTIEL -->
       <div class="price-card popular">
         <div class="price-badge" data-fr="⭐ LE PLUS POPULAIRE" data-en="⭐ MOST POPULAR">⭐ LE PLUS POPULAIRE</div>
         <div class="price-name">Essentiel</div>
         <div class="price-desc" data-fr="Accès complet aux cours et exercices corrigés." data-en="Full access to lessons and corrected exercises.">Accès complet aux cours et exercices corrigés.</div>
-        <div class="price-amount"><span class="price-number">1 995</span><span class="price-currency">FCFA</span><span class="price-period" data-fr="/mois" data-en="/month">/mois</span></div>
+        <div class="price-amount">
+          <span class="price-number price-display" data-fcfa="1 999" data-eur="2,99" data-usd="3,49" data-gbp="2,69" data-cad="4,49" data-cny="22,99" data-aed="12,99">1 999</span>
+          <span class="price-currency price-currency-display" data-fcfa="FCFA" data-eur="€" data-usd="$" data-gbp="£" data-cad="CA$" data-cny="¥" data-aed="د.إ">FCFA</span>
+          <span class="price-period" data-fr="/mois" data-en="/month">/mois</span>
+        </div>
         <ul class="price-features">
           <li data-fr="Tous les chapitres débloqués" data-en="All chapters unlocked">Tous les chapitres débloqués</li>
-          <li data-fr="Cours complets + leçons détaillées" data-en="Full lessons + detailed content">Cours complets + leçons détaillées</li>
+          <li data-fr="Cours complets + leçons détaillées" data-en="Full lessons">Cours complets + leçons détaillées</li>
           <li data-fr="Tous les exercices corrigés" data-en="All corrected exercises">Tous les exercices corrigés</li>
           <li data-fr="Tuteur Kodjo illimité" data-en="Unlimited Kodjo tutor">Tuteur Kodjo illimité</li>
           <li data-fr="Suivi de progression" data-en="Progress tracking">Suivi de progression</li>
@@ -480,20 +503,48 @@ footer ul li a:hover{color:var(--white)}
         </ul>
         <a href="https://app.nunya.academy" class="btn-plan btn-plan-blue" data-fr="Choisir Essentiel" data-en="Choose Essential">Choisir Essentiel</a>
       </div>
+
+      <!-- PREMIUM -->
       <div class="price-card">
         <div class="price-name">Premium</div>
-        <div class="price-desc" data-fr="L'expérience complète pour exceller et se dépasser." data-en="The complete experience to excel and push your limits.">L'expérience complète pour exceller et se dépasser.</div>
-        <div class="price-amount"><span class="price-number">2 995</span><span class="price-currency">FCFA</span><span class="price-period" data-fr="/mois" data-en="/month">/mois</span></div>
+        <div class="price-desc" data-fr="L'expérience complète pour exceller et se dépasser." data-en="The complete experience to excel.">L'expérience complète pour exceller et se dépasser.</div>
+        <div class="price-amount">
+          <span class="price-number price-display" data-fcfa="3 299" data-eur="4,99" data-usd="5,49" data-gbp="4,49" data-cad="7,49" data-cny="38,99" data-aed="18,99">3 299</span>
+          <span class="price-currency price-currency-display" data-fcfa="FCFA" data-eur="€" data-usd="$" data-gbp="£" data-cad="CA$" data-cny="¥" data-aed="د.إ">FCFA</span>
+          <span class="price-period" data-fr="/mois" data-en="/month">/mois</span>
+        </div>
         <ul class="price-features">
           <li data-fr="Tout le plan Essentiel" data-en="Everything in Essential">Tout le plan Essentiel</li>
-          <li data-fr="QCM et défis quotidiens" data-en="Daily quizzes and challenges">QCM et défis quotidiens</li>
+          <li data-fr="QCM et défis quotidiens" data-en="Daily quizzes">QCM et défis quotidiens</li>
           <li data-fr="Classement mondial" data-en="World leaderboard">Classement mondial</li>
           <li data-fr="Compétitions mondiales" data-en="World competitions">Compétitions mondiales</li>
-          <li data-fr="Annales DNB et Bac corrigées" data-en="DNB and Bac past papers">Annales DNB et Bac corrigées</li>
-          <li data-fr="Rapports de progression détaillés" data-en="Detailed progress reports">Rapports de progression détaillés</li>
+          <li data-fr="Annales DNB et Bac corrigées" data-en="Past papers">Annales DNB et Bac corrigées</li>
+          <li data-fr="Rapports de progression détaillés" data-en="Detailed reports">Rapports de progression détaillés</li>
         </ul>
         <a href="https://app.nunya.academy" class="btn-plan btn-plan-fill" data-fr="Choisir Premium" data-en="Choose Premium">Choisir Premium</a>
       </div>
+
+      <!-- FAMILLE -->
+      <div class="price-card" style="border-color:var(--gold);background:var(--gold-light);">
+        <div class="price-badge" style="background:var(--gold);" data-fr="👨‍👩‍👧 PLAN FAMILLE" data-en="👨‍👩‍👧 FAMILY PLAN">👨‍👩‍👧 PLAN FAMILLE</div>
+        <div class="price-name">Famille</div>
+        <div class="price-desc" data-fr="Jusqu'à 4 enfants + dashboard parents complet." data-en="Up to 4 children + full parent dashboard.">Jusqu'à 4 enfants + dashboard parents complet.</div>
+        <div class="price-amount">
+          <span class="price-number price-display" data-fcfa="6 599" data-eur="9,99" data-usd="10,99" data-gbp="8,99" data-cad="14,99" data-cny="77,99" data-aed="36,99">6 599</span>
+          <span class="price-currency price-currency-display" data-fcfa="FCFA" data-eur="€" data-usd="$" data-gbp="£" data-cad="CA$" data-cny="¥" data-aed="د.إ">FCFA</span>
+          <span class="price-period" data-fr="/mois" data-en="/month">/mois</span>
+        </div>
+        <ul class="price-features">
+          <li data-fr="Jusqu'à 4 enfants inclus" data-en="Up to 4 children">Jusqu'à 4 enfants inclus</li>
+          <li data-fr="Tout le plan Premium" data-en="Everything in Premium">Tout le plan Premium</li>
+          <li data-fr="Dashboard parents complet" data-en="Full parent dashboard">Dashboard parents complet</li>
+          <li data-fr="Rapports hebdomadaires automatiques" data-en="Weekly reports">Rapports hebdomadaires automatiques</li>
+          <li data-fr="Suivi progression par enfant" data-en="Per-child tracking">Suivi progression par enfant</li>
+          <li data-fr="Support prioritaire" data-en="Priority support">Support prioritaire</li>
+        </ul>
+        <a href="https://app.nunya.academy" class="btn-plan btn-plan-fill" style="background:var(--gold);" data-fr="Choisir Famille" data-en="Choose Family">Choisir Famille</a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -558,7 +609,7 @@ footer ul li a:hover{color:var(--white)}
           <span class="logo-text">Nunya<em>.</em></span>
         </div>
         <p class="footer-desc" data-fr="La plateforme académique numérique de référence pour les élèves francophones du monde entier." data-en="The world's reference digital academic platform for French-speaking students.">La plateforme académique numérique de référence pour les élèves francophones du monde entier.</p>
-        <p class="footer-ewe">Nunya — « Le savoir »</p>
+        <p class="footer-ewe">Nunya — « Le savoir » 🇹🇬🇬🇭</p>
       </div>
       <div>
         <h4 data-fr="Plateforme" data-en="Platform">Plateforme</h4>
@@ -689,6 +740,32 @@ const FAQS = {
 };
 
 let currentLang='fr';
+
+
+// ── SWITCHER DEVISE ──────────────────────────────────────────────────────────
+function setCurrency(currency) {
+  // Mettre à jour les prix
+  document.querySelectorAll('.price-display').forEach(el => {
+    el.textContent = el.getAttribute('data-' + currency);
+  });
+  // Mettre à jour les symboles
+  document.querySelectorAll('.price-currency-display').forEach(el => {
+    el.textContent = el.getAttribute('data-' + currency);
+  });
+  // Mettre à jour les boutons
+  document.querySelectorAll('.currency-btn').forEach(btn => {
+    btn.style.background = 'transparent';
+    btn.style.color = 'var(--gray-600)';
+    btn.style.borderColor = 'var(--gray-200)';
+    btn.style.color = 'var(--gray-600)';
+  });
+  const active = document.getElementById('btn-' + currency);
+  if (active) {
+    active.style.background = 'var(--navy)';
+    active.style.color = '#fff';
+    active.style.borderColor = 'var(--navy)';
+  }
+}
 
 function buildFAQ(){
   const list=document.getElementById('faqList');
