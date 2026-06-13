@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nunya.academy/sitemap.xml
+
+# Bloquer les crawlers IA
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
