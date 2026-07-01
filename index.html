@@ -402,19 +402,52 @@ footer ul li a:hover{color:var(--white)}
     <p class="section-tag" data-fr="PROGRAMME COMPLET" data-en="FULL CURRICULUM">PROGRAMME COMPLET</p>
     <h2 class="section-title" data-fr="De la 6ème à la Terminale" data-en="From middle school to graduation">De la 6ème à la Terminale</h2>
     <p class="section-sub" data-fr="Contenu pédagogique rigoureux aligné sur le programme officiel de l'Éducation Nationale française, enrichi d'exemples du monde francophone." data-en="Rigorous educational content aligned with the official French national curriculum, enriched with examples from the francophone world.">Contenu pédagogique rigoureux aligné sur le programme officiel de l'Éducation Nationale française, enrichi d'exemples du monde francophone.</p>
-    <div class="levels-grid">
+    <div class="levels-grid" id="levels-grid">
       <div class="level-card">
         <div class="level-icon">📗</div>
         <div class="level-name">6ème</div>
-        <div class="level-subjects" data-fr="6 matières · 116 chapitres" data-en="6 subjects · 116 chapters">6 matières · 116 chapitres</div>
-        <span class="level-badge badge-available" data-fr="Disponible" data-en="Available">Disponible</span>
+        <div class="level-subjects" id="level-6eme">6 matières · 116 chapitres</div>
+        <span class="level-badge badge-available" id="badge-6eme">Disponible</span>
       </div>
       <div class="level-card">
         <div class="level-icon">📘</div>
         <div class="level-name">5ème</div>
-        <div class="level-subjects" data-fr="6 matières · 111 chapitres" data-en="6 subjects · 111 chapters">6 matières · 111 chapitres</div>
-        <span class="level-badge badge-available" data-fr="Disponible" data-en="Available">Disponible</span>
+        <div class="level-subjects" id="level-5eme">6 matières · 111 chapitres</div>
+        <span class="level-badge badge-available" id="badge-5eme">Disponible</span>
       </div>
+      <div class="level-card">
+        <div class="level-icon">📙</div>
+        <div class="level-name">4ème</div>
+        <div class="level-subjects" id="level-4eme">6 matières · 109 chapitres</div>
+        <span class="level-badge badge-available" id="badge-4eme">Disponible</span>
+      </div>
+      <div class="level-card">
+        <div class="level-icon">📕</div>
+        <div class="level-name">3ème</div>
+        <div class="level-subjects" id="level-3eme">6 matières · 123 chapitres</div>
+        <span class="level-badge badge-available" id="badge-3eme">Disponible</span>
+      </div>
+      <div class="level-card">
+        <div class="level-icon">🎓</div>
+        <div class="level-name">2nde</div>
+        <div class="level-subjects" id="level-2nde">6 matières · 114 chapitres</div>
+        <span class="level-badge badge-available" id="badge-2nde">Disponible</span>
+      </div>
+      <div class="level-card">
+        <div class="level-icon">📐</div>
+        <div class="level-name">1ère</div>
+        <div class="level-subjects" id="level-1ere">20 matières · 235 chapitres</div>
+        <span class="level-badge badge-soon" id="badge-1ere">Bientôt</span>
+      </div>
+      <div class="level-card">
+        <div class="level-icon">🏆</div>
+        <div class="level-name">Terminale</div>
+        <div class="level-subjects" id="level-terminale">20 matières · 243 chapitres</div>
+        <span class="level-badge badge-soon" id="badge-terminale">Bientôt</span>
+      </div>
+    </div>
+  </div>
+</section>
       <div class="level-card highlight">
         <div class="level-icon">📙</div>
         <div class="level-name">4ème</div>
@@ -927,34 +960,71 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN5ZmNrd2V1Y3dkcGZndHB5bWVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc0MDE0OTQsImV4cCI6MjA5Mjk3NzQ5NH0.1AFo6CMON4ZWK2nDlZMP7wpUv2x7WAk3fesx2Ls-5ys';
 
   async function loadStats() {
-    try {
-      const headers = {
-        'apikey': SUPABASE_KEY,
-        'Authorization': 'Bearer ' + SUPABASE_KEY,
-        'Range-Unit': 'items',
-        'Prefer': 'count=exact'
-      };
+  try {
+    const headers = {
+      'apikey': SUPABASE_KEY,
+      'Authorization': 'Bearer ' + SUPABASE_KEY,
+      'Range-Unit': 'items',
+      'Prefer': 'count=exact'
+    };
 
-      const lessonsRes = await fetch(SUPABASE_URL + '/rest/v1/lessons?select=id', { headers });
-      const totalLessons = parseInt(lessonsRes.headers.get('content-range')?.split('/')[1] || 0);
+    const lessonsRes = await fetch(SUPABASE_URL + '/rest/v1/lessons?select=id', { headers });
+    const totalLessons = parseInt(lessonsRes.headers.get('content-range')?.split('/')[1] || 0);
+    const chaptersRes = await fetch(SUPABASE_URL + '/rest/v1/chapters?select=id', { headers });
+    const totalChapters = parseInt(chaptersRes.headers.get('content-range')?.split('/')[1] || 0);
+    const totalExercises = totalLessons * 6;
 
-      const chaptersRes = await fetch(SUPABASE_URL + '/rest/v1/chapters?select=id', { headers });
-      const totalChapters = parseInt(chaptersRes.headers.get('content-range')?.split('/')[1] || 0);
-
-      const totalExercises = totalLessons * 6;
-
-      if (totalChapters > 0) {
-        document.getElementById('stat-chapters').innerHTML = totalChapters.toLocaleString('fr') + '<span>+</span>';
-      }
-      if (totalExercises > 0) {
-        document.getElementById('stat-exercises').innerHTML = totalExercises.toLocaleString('fr') + '<span>+</span>';
-      }
-    } catch(e) {
-      console.error('Stats error:', e);
+    if (totalChapters > 0) {
+      document.getElementById('stat-chapters').innerHTML = totalChapters.toLocaleString('fr') + '<span>+</span>';
     }
-  }
+    if (totalExercises > 0) {
+      document.getElementById('stat-exercises').innerHTML = totalExercises.toLocaleString('fr') + '<span>+</span>';
+    }
 
-  loadStats();
+    const levelsData = [
+      { name: '6eme', id: '6eme' },
+      { name: '5eme', id: '5eme' },
+      { name: '4eme', id: '4eme' },
+      { name: '3eme', id: '3eme' },
+      { name: '2nde', id: '2nde' },
+      { name: '1ere Generale', id: '1ere' },
+      { name: 'Terminale Generale', id: 'terminale' },
+    ];
+
+    const allLevelsRes = await fetch(SUPABASE_URL + '/rest/v1/levels?select=id,name', { headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY } });
+    const allLevels = await allLevelsRes.json();
+
+    const allChaptersRes = await fetch(SUPABASE_URL + '/rest/v1/chapters?select=id,level_id', { headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY } });
+    const allChapters = await allChaptersRes.json();
+
+    const allLessonsRes = await fetch(SUPABASE_URL + '/rest/v1/lessons?select=id,chapter_id', { headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY } });
+    const allLessons = await allLessonsRes.json();
+
+    for (const level of levelsData) {
+      const levelObj = allLevels.find(l => l.name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g,'').toLowerCase() === level.name.replace(/\s+/g,'').toLowerCase());
+      if (!levelObj) continue;
+
+      const chaptersForLevel = allChapters.filter(c => c.level_id === levelObj.id);
+      const chapterIds = chaptersForLevel.map(c => c.id);
+      const lessonsForLevel = allLessons.filter(l => chapterIds.includes(l.chapter_id));
+
+      const subjectEl = document.getElementById('level-' + level.id);
+      const badgeEl = document.getElementById('badge-' + level.id);
+
+      if (subjectEl && chaptersForLevel.length > 0) {
+        subjectEl.textContent = chaptersForLevel.length + ' chapitres · ' + lessonsForLevel.length + ' leçons';
+      }
+      if (badgeEl && lessonsForLevel.length > 0) {
+        badgeEl.textContent = 'Disponible';
+        badgeEl.className = 'level-badge badge-available';
+      }
+    }
+
+  } catch(e) {
+    console.error('Stats error:', e);
+  }
+}
+loadStats();
 </script>
 </body>
 </html>
