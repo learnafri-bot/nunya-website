@@ -293,14 +293,13 @@ footer ul li a:hover{color:var(--white)}
       <div class="stat-label" data-fr="Matières fondamentales" data-en="Core subjects">Matières fondamentales</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">16 000<span>+</span></div>
+      <div class="stat-num" id="stat-exercises">16 000<span>+</span></div>
       <div class="stat-label" data-fr="Exercices + Corrigés" data-en="Exercises + Solutions">Exercices + Corrigés</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">804<span>+</span></div>
+      <div class="stat-num" id="stat-chapters">804<span>+</span></div>
       <div class="stat-label" data-fr="Chapitres disponibles" data-en="Chapters available">Chapitres disponibles</div>
     </div>
-    
   </div>
 </div>
 
@@ -922,6 +921,40 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'})}
   });
 });
+</script>
+  <script>
+  const SUPABASE_URL = 'https://syfckweucwdpfgtpymeg.supabase.co';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN5ZmNrd2V1Y3dkcGZndHB5bWVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc0MDE0OTQsImV4cCI6MjA5Mjk3NzQ5NH0.1AFo6CMON4ZWK2nDlZMP7wpUv2x7WAk3fesx2Ls-5ys';
+
+  async function loadStats() {
+    try {
+      const headers = {
+        'apikey': SUPABASE_KEY,
+        'Authorization': 'Bearer ' + SUPABASE_KEY,
+        'Range-Unit': 'items',
+        'Prefer': 'count=exact'
+      };
+
+      const lessonsRes = await fetch(SUPABASE_URL + '/rest/v1/lessons?select=id', { headers });
+      const totalLessons = parseInt(lessonsRes.headers.get('content-range')?.split('/')[1] || 0);
+
+      const chaptersRes = await fetch(SUPABASE_URL + '/rest/v1/chapters?select=id', { headers });
+      const totalChapters = parseInt(chaptersRes.headers.get('content-range')?.split('/')[1] || 0);
+
+      const totalExercises = totalLessons * 6;
+
+      if (totalChapters > 0) {
+        document.getElementById('stat-chapters').innerHTML = totalChapters.toLocaleString('fr') + '<span>+</span>';
+      }
+      if (totalExercises > 0) {
+        document.getElementById('stat-exercises').innerHTML = totalExercises.toLocaleString('fr') + '<span>+</span>';
+      }
+    } catch(e) {
+      console.error('Stats error:', e);
+    }
+  }
+
+  loadStats();
 </script>
 </body>
 </html>
