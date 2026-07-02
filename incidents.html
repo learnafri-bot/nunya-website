@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plan de réponse aux incidents — Nunya Academy</title>
+  <style>
+    :root {
+      --navy: #0A1F44;
+      --gold: #C9972C;
+      --gray: #4B5468;
+      --bg: #F7F8FA;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font-body); background: var(--bg); color: var(--navy); line-height: 1.8; }
+    header { background: var(--navy); padding: 20px 40px; }
+    header a { color: #fff; text-decoration: none; font-size: 20px; font-family: var(--font-display); font-weight: 700; }
+    header span { color: #C9972C; }
+    .container { max-width: 860px; margin: 0 auto; padding: 60px 40px; }
+    h1 { font-family: var(--font-display); font-size: 36px; color: var(--navy); margin-bottom: 8px; }
+    .subtitle { color: var(--gray); font-size: 14px; margin-bottom: 48px; padding-bottom: 24px; border-bottom: 2px solid #C9972C; }
+    h2 { font-size: 20px; font-weight: 700; color: var(--navy); margin: 40px 0 16px; padding-left: 16px; border-left: 4px solid #C9972C; }
+    p { color: var(--gray); margin-bottom: 16px; font-size: 15px; }
+    ul { color: var(--gray); margin: 0 0 16px 24px; font-size: 15px; }
+    ul li { margin-bottom: 8px; }
+    .timeline { border-left: 3px solid #C9972C; margin: 24px 0; padding-left: 24px; }
+    .timeline-item { margin-bottom: 24px; position: relative; }
+    .timeline-item::before { content: attr(data-time); position: absolute; left: -80px; font-size: 12px; font-weight: 700; color: #C9972C; }
+    .highlight { background: #FDF3DC; border-left: 4px solid #C9972C; padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .alert { background: #FEF2F2; border-left: 4px solid #EF4444; padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    footer { background: var(--navy); color: rgba(255,255,255,0.6); text-align: center; padding: 24px; font-size: 13px; }
+    footer a { color: #C9972C; text-decoration: none; }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <a href="https://nunya.academy">N<span>.</span> Nunya Academy</a>
+</header>
+
+<div class="container">
+  <h1>Plan de réponse aux incidents</h1>
+  <p class="subtitle">Dernière mise à jour : 1er juillet 2026 · Version 1.0 · Usage interne et public</p>
+
+  <div class="highlight">
+    <p><strong>Engagement Nunya Academy :</strong> En cas de violation de données personnelles, nous nous engageons à notifier les utilisateurs concernés dans un délai maximum de 72 heures, conformément au RGPD européen et aux réglementations applicables dans tous les pays où nous opérons.</p>
+  </div>
+
+  <h2>1. Définition d'un incident</h2>
+  <p>Un incident de sécurité est tout événement qui compromet ou est susceptible de compromettre la confidentialité, l'intégrité ou la disponibilité des données personnelles des utilisateurs de Nunya Academy.</p>
+  <p>Exemples d'incidents :</p>
+  <ul>
+    <li>Accès non autorisé à la base de données</li>
+    <li>Vol ou fuite de données utilisateurs</li>
+    <li>Attaque par ransomware sur nos serveurs</li>
+    <li>Exposition accidentelle de clés API</li>
+    <li>Compromission du compte SuperAdmin</li>
+    <li>Perte de disponibilité prolongée de la plateforme (plus de 24h)</li>
+  </ul>
+
+  <h2>2. Procédure de réponse — Chronologie</h2>
+
+  <div class="timeline">
+    <div class="timeline-item" data-time="0-1h">
+      <p><strong>Détection et confinement immédiat</strong></p>
+      <ul>
+        <li>Identifier la nature et l'étendue de l'incident</li>
+        <li>Couper immédiatement l'accès compromis (révoquer clés API, suspendre comptes)</li>
+        <li>Documenter l'heure et la nature de l'incident</li>
+        <li>Contacter support@nunya.academy pour déclencher la procédure</li>
+      </ul>
+    </div>
+    <div class="timeline-item" data-time="1-24h">
+      <p><strong>Évaluation et notification interne</strong></p>
+      <ul>
+        <li>Évaluer le nombre d'utilisateurs affectés</li>
+        <li>Identifier les données compromises (emails, mots de passe, données de progression)</li>
+        <li>Préparer la communication aux utilisateurs</li>
+        <li>Consulter un expert juridique si nécessaire</li>
+      </ul>
+    </div>
+    <div class="timeline-item" data-time="24-72h">
+      <p><strong>Notification obligatoire</strong></p>
+      <ul>
+        <li>Notifier les utilisateurs affectés par email via Resend</li>
+        <li>Notifier la CNIL (si utilisateurs européens affectés) — cnil.fr</li>
+        <li>Notifier les autorités gabonaises compétentes</li>
+        <li>Publier un avis sur nunya.academy si l'incident est majeur</li>
+      </ul>
+    </div>
+    <div class="timeline-item" data-time="72h+">
+      <p><strong>Remédiation et rapport final</strong></p>
+      <ul>
+        <li>Corriger la faille de sécurité</li>
+        <li>Renforcer les mesures de sécurité</li>
+        <li>Documenter les leçons apprises</li>
+        <li>Mettre à jour le présent plan si nécessaire</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>3. Contacts en cas d'incident</h2>
+  <ul>
+    <li><strong>Responsable sécurité Nunya Academy :</strong> support@nunya.academy</li>
+    <li><strong>CNIL (France) :</strong> notifications@cnil.fr — cnil.fr/fr/notifier-une-violation-de-donnees-personnelles</li>
+    <li><strong>Supabase (hébergeur) :</strong> security@supabase.io</li>
+    <li><strong>Cloudflare (CDN/DDoS) :</strong> cloudflare.com/abuse</li>
+  </ul>
+
+  <h2>4. Communication aux utilisateurs</h2>
+  <p>En cas de violation de données, le message envoyé aux utilisateurs affectés contiendra :</p>
+  <ul>
+    <li>La nature de l'incident et les données potentiellement concernées</li>
+    <li>Les mesures prises par Nunya Academy pour contenir l'incident</li>
+    <li>Les actions recommandées pour les utilisateurs (changer mot de passe, etc.)</p>
+    <li>Un contact direct pour toute question : support@nunya.academy</li>
+  </ul>
+
+  <div class="alert">
+    <p><strong>Important :</strong> Nunya Academy ne demandera JAMAIS votre mot de passe par email. Si vous recevez un email suspects prétendant venir de Nunya Academy et demandant vos identifiants, ne cliquez pas et signalez-le à support@nunya.academy.</p>
+  </div>
+
+  <h2>5. Prévention</h2>
+  <ul>
+    <li>Audit de sécurité trimestriel des accès et configurations</li>
+    <li>Rotation des clés API tous les 6 mois</li>
+    <li>Backup manuel hebdomadaire des données critiques</li>
+    <li>Veille sur les vulnérabilités des dépendances (npm audit)</li>
+    <li>Test de pénétration annuel prévu dès que le budget le permet</li>
+  </ul>
+
+</div>
+
+<footer>
+  <p>© 2026 Nunya Academy · <a
