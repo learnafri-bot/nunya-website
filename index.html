@@ -147,7 +147,7 @@ section{padding:88px 24px}
 .price-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--blue);color:var(--white);font-size:11px;font-weight:600;padding:4px 16px;border-radius:100px;letter-spacing:0.5px;white-space:nowrap}
 .price-name{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--navy);margin-bottom:8px}
 .price-desc{font-size:14px;color:var(--gray-400);margin-bottom:24px;line-height:1.6}
-.price-amount{display:flex;align-items:baseline;gap:4px;margin-bottom:28px}
+..price-amount{display:flex;align-items:baseline;gap:4px;margin-bottom:28px;flex-wrap:nowrap;white-space:nowrap;}
 .price-currency{font-size:16px;font-weight:500;color:var(--gray-600)}
 .price-number{font-family:var(--font-display);font-size:36px;font-weight:700;color:var(--navy);line-height:1}
 .price-period{font-size:14px;color:var(--gray-400);margin-left:4px}
@@ -439,11 +439,12 @@ footer ul li a:hover{color:var(--white)}
         <div class="level-subjects" id="level-1ere">20 matières · 235 chapitres</div>
         <span class="level-badge badge-soon" id="badge-1ere">Bientôt</span>
       </div>
-      <div class="level-card">
+     <div class="level-card">
         <div class="level-icon">🏆</div>
         <div class="level-name">Terminale</div>
         <div class="level-subjects" id="level-terminale">20 matières · 243 chapitres</div>
-        <span class="level-badge badge-soon" id="badge-terminale">Bientôt</span>
+        <span class="level-badge badge-available" id="badge-terminale">Disponible</span>
+      </div>
       </div>
     </div>
   </div>
@@ -883,6 +884,8 @@ function setCurrency(currency) {
     active.style.borderColor = 'var(--navy)';
   }
 }
+  // Devise par défaut : EUR
+document.addEventListener('DOMContentLoaded', () => setCurrency('eur'));
 
 function buildFAQ(){
   const list=document.getElementById('faqList');
